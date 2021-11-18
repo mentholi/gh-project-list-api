@@ -1,24 +1,21 @@
 from rest_framework import serializers
-from projects.models import Project
+from webhooks.models import Webhook
 
 
-class ProjectSerializer(serializers.ModelSerializer):
+class WebhookSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
-    link = serializers.URLField()
+    url = serializers.URLField()
 
     class Meta:
-        model = Project
+        model = Webhook
         fields = [
             'id',
             'user',
-            'name',
-            'description',
+            'url',
             'created_at',
             'updated_at',
-            'link',
-            'rating',
         ]
         read_only_fields = [
             'user',
