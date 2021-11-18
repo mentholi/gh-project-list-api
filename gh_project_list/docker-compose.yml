@@ -1,8 +1,0 @@
-version: '2.1'
-services:
-  # Redis for Dramatiq broker
-  redis:
-    container_name: redis
-    image: redis:3
-    ports:
-      - "6379:6379"
